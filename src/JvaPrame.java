@@ -6,6 +6,7 @@ import java.util.*;
 public class JvaPrame {
 
     private static final List<String> suspiciousPatterns = Arrays.asList(
+        //의심문장들
             "Runtime.getRuntime()",
             "ProcessBuilder",
             "exec(",
@@ -26,7 +27,7 @@ public class JvaPrame {
 
         try {
             if (inputPath.startsWith("http://") || inputPath.startsWith("https://")) {
-                // 웹 URL 처리
+                // 웹 URL 처리하기
                 URL url = new URL(inputPath);
                 BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
                 String line;
@@ -35,7 +36,7 @@ public class JvaPrame {
                 }
                 in.close();
             } else {
-                // 로컬 파일 처리
+                // 로컬 파일 처리하기
                 lines = Files.readAllLines(Paths.get(inputPath));
             }
 
